@@ -1,0 +1,16 @@
+{
+  "name": "cab-launcher",
+  "version": "2026.6.5",
+  "description": "Lanzador del Modulo C.A.B (genera un .exe autonomo)",
+  "bin": "launcher.js",
+  "scripts": {
+    "build": "pkg . --targets node20-win-x64 --output ModuloCAB.exe"
+  },
+  "pkg": {
+    "assets": ["index.html"],
+    "targets": ["node20-win-x64"]
+  },
+  "devDependencies": {
+    "@yao-pkg/pkg": "^6.20.0"
+  }
+}

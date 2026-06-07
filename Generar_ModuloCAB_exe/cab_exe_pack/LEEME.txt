@@ -1,0 +1,55 @@
+==========================================================
+  Modulo C.A.B - Generar ModuloCAB.exe (app autonoma)
+==========================================================
+
+Este paquete genera UN solo archivo: ModuloCAB.exe
+Al ejecutarlo, abre el modulo en el navegador desde un origen
+local real (http://127.0.0.1), por lo que TODAS las funciones
+trabajan (incluida F7). No necesita hosting, dominio ni Rust.
+
+Contenido:
+  - launcher.js   -> el lanzador (servidor local + abre el navegador)
+  - index.html    -> el modulo completo, autocontenido y offline
+  - package.json  -> configuracion de empaquetado
+  - .github/workflows/build-exe.yml -> compilacion en la nube (opcional)
+
+----------------------------------------------------------
+OPCION A - Compilar en tu PC (Windows o cualquier SO con Node)
+----------------------------------------------------------
+Requisito unico: Node.js 18+  (https://nodejs.org)
+NO necesita Rust ni Build Tools.
+
+1. Instalar Node.js (si no lo tenes).
+2. Abrir una terminal (CMD/PowerShell) DENTRO de esta carpeta.
+3. Ejecutar:
+       npm install
+       npm run build
+4. Se genera  ModuloCAB.exe  en esta misma carpeta.
+5. Distribuir ese .exe a los equipos. Doble clic y listo.
+
+   Nota: la primera vez, "npm install" descarga el runtime de
+   Node para Windows (necesita internet abierto). Si el target
+   "node20-win-x64" diera error 404, edita package.json y proba
+   con "node18-win-x64" o "node22-win-x64".
+
+----------------------------------------------------------
+OPCION B - Compilar en la nube (sin instalar NADA)
+----------------------------------------------------------
+1. Subi esta carpeta a un repositorio en GitHub.
+2. Pestania Actions -> "Compilar ModuloCAB.exe" -> Run workflow.
+3. Al terminar, descarga el artefacto "ModuloCAB-exe": contiene
+   el ModuloCAB.exe listo para distribuir.
+
+----------------------------------------------------------
+USO del ModuloCAB.exe (para los funcionarios)
+----------------------------------------------------------
+- Doble clic en ModuloCAB.exe.
+- Se abre una ventana negra (consola): NO cerrarla mientras se
+  usa el modulo. Es el servidor local.
+- El modulo se abre solo en el navegador por defecto.
+- Para cerrar el modulo: cerrar esa ventana negra.
+- API Key: cada usuario carga la suya con el boton "Mi API Key".
+- Sin internet: abre y funciona la Proforma; las funciones de IA
+  avisan que necesitan conexion (es inherente a la IA en la nube).
+
+Desarrollado para CrediSolucion SAECA - SAGENEB EAS
